@@ -69,11 +69,11 @@ int main() {
             }
         }
     }
-    Image image("text4.png");
+    Image image("text.png");
     image.apply([](float3 x) {
-        x.clamp(0, 8192);
-        if (x.mag2() < 10000) return float3(0);
-        return x*1.5f;
+        x.clamp(0, 255);
+        if (x.mag2() > 10) return float3(0);
+        return float3(2, 1.5f, 0.5f)*255;
     });
     //image.upsample();
     //image.upsample();
